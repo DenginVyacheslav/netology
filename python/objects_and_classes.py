@@ -113,49 +113,33 @@ kryakva.weight = 3
 kryakva.say = 'кря-кря'
 kryakva.eggs = 2
 
-print(seryy.eggs)
-seryy.feeding(3)
-print("Вес: " + seryy.species + ' ' + seryy.name + ' ' + str(seryy.weight))
-belyy.feeding(4)
-print("Вес: " + belyy.species + ' ' + belyy.name + ' ' + str(belyy.weight))
-manka.feeding(30)
-print("Вес: " + manka.species + ' ' + manka.name + ' ' + str(manka.weight))
-barashek.feeding(20)
-print("Вес: " + barashek.species + ' ' + barashek.name + ' ' + str(barashek.weight))
-kudryavyy.feeding(15)
-print("Вес: " + kudryavyy.species + ' ' + kudryavyy.name + ' ' + str(kudryavyy.weight))
-koko.feeding(2)
-print("Вес: " + koko.species + ' ' + koko.name + ' ' + str(koko.weight))
-kukareku.feeding(1)
-print("Вес: " + kukareku.species + ' ' + kukareku.name + ' ' + str(kukareku.weight))
-roga.feeding(15)
-print("Вес: " + roga.species + ' ' + roga.name + ' ' + str(roga.weight))
-kopyta.feeding(10)
-print("Вес: " + kopyta.species + ' ' + kopyta.name + ' ' + str(kopyta.weight))
-kryakva.feeding(2)
-print("Вес: " + kryakva.species + ' ' + kryakva.name + ' ' + str(kryakva.weight))
+animals =[seryy, belyy, manka, barashek, kudryavyy, koko, kukareku, roga, kopyta, kryakva]
+
+for animal in animals:
+    animal.feeding(7)
+    print(animal.species + ", кличка - " + animal.name + ", вес - " + str(animal.weight) + "кг")
+
 print('\n===================================\n')
 
-seryy.collection(1)
-print("Вес: " + seryy.species + ' ' + seryy.name + ' ' + str(seryy.weight) + ", яйца = " + str(int(seryy.eggs)))
-belyy.collection(1)
-print("Вес: " + belyy.species + ' ' + belyy.name + ' ' + str(belyy.weight) + ", яйца = " + str(int(belyy.eggs)))
-manka.milking_animal(15)
-print("Вес: " + manka.species + ' ' + manka.name + ' ' + str(manka.weight) + ", молоко = " + str(int(manka.milk)))
-barashek.haircut_animal(4)
-print("Вес: " + barashek.species + ' ' + barashek.name + ' ' + str(barashek.weight) + ", шерсть = " + str(int(barashek.wool)))
-kudryavyy.haircut_animal(5)
-print("Вес: " + kudryavyy.species + ' ' + kudryavyy.name + ' ' + str(kudryavyy.weight) + ", шерсть = " + str(int(kudryavyy.wool)))
-koko.collection(2)
-print("Вес: " + koko.species + ' ' + koko.name + ' ' + str(koko.weight) + ", яйца = " + str(int(koko.eggs)))
-kukareku.collection(1)
-print("Вес: " + kukareku.species + ' ' + kukareku.name + ' ' + str(kukareku.weight) + ", яйца = " + str(int(kukareku.eggs)))
-roga.milking_animal(3)
-print("Вес: " + roga.species + ' ' + roga.name + ' ' + str(roga.weight) + ", молоко = " + str(int(roga.milk)))
-kopyta.milking_animal(3)
-print("Вес: " + kopyta.species + ' ' + kopyta.name + ' ' + str(kopyta.weight) + ", молоко = " + str(int(kopyta.milk)))
-kryakva.collection(1)
-print("Вес: " + kryakva.species + ' ' + kryakva.name + ' ' + str(kryakva.weight) + ", яйца = " + str(int(kryakva.eggs)))
+milk = [manka, roga, kopyta]
+aggs = [seryy, belyy, koko, kukareku, kryakva]
+wool = [barashek, kudryavyy]
+
+for milking in milk:
+    milking.milking_animal(2)
+    print(milking.species + ", кличка - " + milking.name + ", вес - " + str(milking.weight) + "кг" +
+          ", молоко - " + str(int(milking.milk)))
+
+for agg in aggs:
+    agg.collection(2)
+    print(agg.species + ", кличка - " + agg.name + ", вес - " + str(agg.weight) + "кг" +
+          ", яйца - " + str(int(agg.eggs)))
+
+for haircut in wool:
+    haircut.haircut_animal(2)
+    print(haircut.species + ", кличка - " + haircut.name + ", вес - " + str(haircut.weight) + "кг" +
+          ", шерсть - " + str(int(haircut.wool)))
+
 print('\n===================================\n')
 
 animal_weight = {seryy.name:seryy.weight, belyy.name:belyy.weight, manka.name:manka.weight,
