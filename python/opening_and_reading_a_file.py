@@ -1,3 +1,4 @@
+import random
 # Задание 1
 
 def file_processing(l1, l2):
@@ -18,6 +19,26 @@ def file_processing(l1, l2):
         new.clear()
     return book
 
+def get_shop_list_by_dishes(ld, p):
+    ingred = []
+    name_ingred = []
+    ingred2 = []
+
+    for name in ld:
+       for v in cook_book[name]:
+          for k, g in v.items():
+              if k == 'ingredient_name':
+                 name_ingred.append(g)
+              if k == 'measure':
+                  ingred.append(g)
+              if k == 'quantity':
+                  ingred2.append(int(g) * p)
+
+    menu = {}
+    for n, v in enumerate(name_ingred):
+      menu[v] = {'measure':ingred[n], 'quantity':ingred2[n]}
+
+    return menu
 
 name_of_dishes = []
 ingredient =[]
@@ -36,8 +57,14 @@ cook_book = file_processing(ingredient, name_of_dishes)
 for k, v in cook_book.items():
     print(k, v)
 
+print('\n======================================\n')
+# Задание 2
+person_count = random.randint(1, 5)
+dishes = cook_book.keys()
 
+person = get_shop_list_by_dishes(dishes, person_count)
 
-
+for k, v in person.items():
+    print(k, ":", v)
 
 
