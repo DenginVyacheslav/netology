@@ -67,4 +67,24 @@ person = get_shop_list_by_dishes(dishes, person_count)
 for k, v in person.items():
     print(k, ":", v)
 
+print('\n======================================\n')
+# Задание 3
 
+file_names = ['1.txt', '2.txt', '3.txt']
+recording_order = {}
+
+for number, file in enumerate(file_names):
+    with open(file, encoding='utf-8') as f1:
+        recording_order[file] = (len(f1.readlines()))
+
+recording_order = dict(sorted(recording_order.items(), key=lambda item: item[1]))
+
+for file, number in recording_order.items():
+    f4 = open('4.txt', 'a')
+    f4.write(file + '\n')
+    f4.write(str(number) + '\n' )
+    with open(file, encoding='utf-8') as f:
+        for n, l in enumerate(f.readlines()):
+            mes = 'Строка номе ' + str(n + 1) + ' файла номер ' + str(file[0] + '\n')
+            f4.write(str(mes))
+    f4.close()
